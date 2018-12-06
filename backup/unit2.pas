@@ -53,7 +53,7 @@ begin
   begin
     self.StringGrid1.InsertRowWithValues(self.StringGrid1.RowCount, [
       p.Name,
-      VarToStr(p.DataType),
+      FieldTypeToString(p.DataType),
       VarToStr(p.Value)
     ]);
   end;

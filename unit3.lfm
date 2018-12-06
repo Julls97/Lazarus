@@ -1,0 +1,425 @@
+object Form3: TForm3
+  Left = 481
+  Height = 578
+  Top = 153
+  Width = 842
+  Caption = 'Form3'
+  ClientHeight = 551
+  ClientWidth = 842
+  Menu = MainMenu1
+  LCLVersion = '1.8.4.0'
+  object Chart1: TChart
+    Left = 32
+    Height = 304
+    Top = 240
+    Width = 232
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Caption = 'Age'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Caption = 'ID'
+        Title.LabelBrush.Style = bsClear
+      end>
+    BackColor = clCream
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    object Chart1BarSeries1: TBarSeries
+      Active = False
+      BarBrush.Color = clRed
+      Source = DbChartSourceChilds
+    end
+  end
+  object Chart2: TChart
+    Left = 328
+    Height = 272
+    Top = 128
+    Width = 400
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+  end
+  object frReportChilds: TfrReport
+    Dataset = frDBDataSetChilds
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 65360
+    top = 24
+  end
+  object frDBDataSetChilds: TfrDBDataSet
+    DataSet = SQLQueryChilds
+    left = 65488
+    top = 24
+  end
+  object frDBDataSetGroups: TfrDBDataSet
+    DataSet = SQLQueryGroups
+    left = 65488
+    top = 104
+  end
+  object frReportGroups: TfrReport
+    Dataset = frDBDataSetGroups
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 65360
+    top = 104
+  end
+  object frDBDataSetKindergarteners: TfrDBDataSet
+    DataSet = SQLQueryKindergarteners
+    left = 65488
+    top = 184
+  end
+  object frReportKindergarteners: TfrReport
+    Dataset = frDBDataSetKindergarteners
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 65360
+    top = 184
+  end
+  object frDBDataSetParents: TfrDBDataSet
+    DataSet = SQLQueryParents
+    left = 65488
+    top = 264
+  end
+  object frReportParents: TfrReport
+    Dataset = frDBDataSetParents
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 65360
+    top = 264
+  end
+  object frReportRecords: TfrReport
+    Dataset = frDBDataSetRecords
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 65360
+    top = 344
+  end
+  object frDBDataSetRecords: TfrDBDataSet
+    DataSet = SQLQueryRecords
+    left = 65488
+    top = 344
+  end
+  object DataSourceChilds: TDataSource
+    DataSet = SQLQueryChilds
+    left = 4246
+    top = 1199
+  end
+  object SQLQueryChilds: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'child_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'parent_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'age'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'gender'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from childs;'
+    )
+    Params = <>
+    left = 1460
+    top = 1199
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = PQConnection1
+    left = 4246
+    top = 1002
+  end
+  object PQConnection1: TPQConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'postgres'
+    KeepConnection = False
+    Password = 'postgres'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '127.0.0.1'
+    Role = 'postgres'
+    left = 1460
+    top = 1002
+  end
+  object DataSourceParents: TDataSource
+    DataSet = SQLQueryParents
+    left = 4246
+    top = 1397
+  end
+  object DataSourceKindergarteners: TDataSource
+    DataSet = SQLQueryKindergarteners
+    left = 4246
+    top = 1594
+  end
+  object DataSourceGroups: TDataSource
+    DataSet = SQLQueryGroups
+    left = 4246
+    top = 1791
+  end
+  object SQLQueryParents: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'parent_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'mom_name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'dad_name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from parents;'
+    )
+    Params = <>
+    left = 1460
+    top = 1397
+  end
+  object SQLQueryKindergarteners: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'kindergartener_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'rating'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'experience_years'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from kindergarteners;'
+    )
+    Params = <>
+    left = 1460
+    top = 1594
+  end
+  object SQLQueryGroups: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'group_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'max_count'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from groups;'
+    )
+    Params = <>
+    left = 1460
+    top = 1791
+  end
+  object SQLQueryRecords: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'child'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'group_'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'kindergartener'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from records;'
+    )
+    Params = <>
+    left = 65496
+    top = 65508
+  end
+  object DataSourceRecords: TDataSource
+    DataSet = SQLQueryRecords
+    left = 65496
+  end
+  object DbChartSourceChilds: TDbChartSource
+    DataSource = DataSourceChildsChart
+    FieldX = 'age'
+    FieldY = 'child_id'
+    left = 368
+    top = 24
+  end
+  object DbChartSourceGroups: TDbChartSource
+    DataSource = DataSourceGroups
+    left = 24
+    top = 16
+  end
+  object DbChartSourceKindergarteners: TDbChartSource
+    DataSource = DataSourceKindergarteners
+    left = 24
+    top = 96
+  end
+  object DbChartSourceParents: TDbChartSource
+    DataSource = DataSourceParents
+    OnGetItem = DbChartSourceParentsGetItem
+    left = 192
+    top = 24
+  end
+  object DbChartSourceRecords: TDbChartSource
+    DataSource = DataSourceRecords
+    left = 192
+    top = 104
+  end
+  object MainMenu1: TMainMenu
+    left = 48
+    top = 168
+    object ChildsReport: TMenuItem
+      Caption = 'ChildsReport'
+      OnClick = ChildsReportMenuItemClick
+    end
+    object ParentsReport: TMenuItem
+      Caption = 'ParentsReport'
+      OnClick = ParentsReportMenuItemClick
+    end
+    object GroupsReport: TMenuItem
+      Caption = 'GroupsReport'
+      OnClick = GroupsReportMenuItemClick
+    end
+    object KindergartenersReport: TMenuItem
+      Caption = 'KindergartenersReport'
+      OnClick = KindergartenersReportMenuItemClick
+    end
+    object RecordsReport: TMenuItem
+      Caption = 'RecordsReport'
+      OnClick = RecordsReportMenuItemClick
+    end
+  end
+  object DataSourceChildsChart: TDataSource
+    DataSet = SQLQueryChildsChart
+    left = 536
+    top = 24
+  end
+  object SQLQueryChildsChart: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'child_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'age'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from childs;'
+    )
+    Params = <>
+    left = 720
+    top = 24
+  end
+end
